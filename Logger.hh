@@ -2,6 +2,7 @@
 #define   __LOGGER_HH_
 
 #include <string>
+#include <stdlib.h>
 
 #include "noncopyable.hh"
 
@@ -30,6 +31,7 @@
         logger.log(buf); \
     } while(0)
 
+/* 如果严重错误 执行exit(-1) 退出程序 */
 #define LOG_FATAL(logmsgFormat, ...) \
     do { \
         Logger& logger = Logger::instance(); \
@@ -37,6 +39,7 @@
         char buf[1024] = {0}; \
         snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
         logger.log(buf); \
+        exit(-1); \
     } while(0)
 
 /* 
