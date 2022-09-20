@@ -77,7 +77,7 @@ private:
         */
     /* !!!!!!!!!!!!! */
 
-    ChannelList activeChannels_; /* 该EventLoop管理的Channel列表 */
+    ChannelList activeChannels_; /* 发生事件的Channel列表 */
 
     std::atomic_bool callingPendingFunctors_; /* 标识当前loop是否有需要执行的回调 */
     std::vector<Functor> pendingFunctors_; /* 存放loop需要执行的所有的回调操作 */
