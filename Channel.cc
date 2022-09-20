@@ -24,14 +24,12 @@ void Channel::tie(const std::shared_ptr<void>& obj) {
 /* 更新在poller上注册的事件 */
 void Channel::update() {
     /* 通过Channel所属的EventLoop 调用Poller的相应方法注册fd的events事件 */
-    // add code
-    // loop_->updateChannel(this);
+    loop_->updateChannel(this);
 }
 
 /* 在Channel所属的EventLoop中 删除当前的Channel */
 void Channel::remove() {
-    // add code
-    // loop_->removeChannel(this);
+    loop_->removeChannel(this);
 }
 
 /* 处理事件 调用相应的回调 */
