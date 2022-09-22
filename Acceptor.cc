@@ -45,7 +45,7 @@ void Acceptor::listen() {
 
 /* acceptChannel_收到新用户连接事件时 调用该函数 */
 void Acceptor::handleRead() {
-    InetAddress peerAddr{0, "0.0.0.0"};
+    InetAddress peerAddr;
     int connfd = acceptSocket_.accept(&peerAddr); /* 和新用户建立连接 */
     if (connfd >= 0) {
         if (newConnectionCallback_) {

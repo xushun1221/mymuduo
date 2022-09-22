@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/xushun/mymuduo/InetAddress.cc
+InetAddress.hh
+/home/xushun/mymuduo/InetAddress.hh
+string.h
+-
+
+/home/xushun/mymuduo/InetAddress.hh
+arpa/inet.h
+-
+string
+-
+

@@ -8,7 +8,7 @@
 class InetAddress {
 public:
     /* 使用ip+port构造socket地址 */
-    explicit InetAddress(uint16_t port, std::string ip = "127.0.0.1");
+    explicit InetAddress(uint16_t port = 0, std::string ip = "127.0.0.1");
     /* 使用sockaddr_in直接构造socket地址 */
     explicit InetAddress(const sockaddr_in& addr) : addr_(addr) {}
     /* 获取ip字符串 */
