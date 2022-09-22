@@ -19,6 +19,9 @@ public:
     uint16_t toPort() const;
     /* 获得内部的sockaddr_in */
     const sockaddr_in* getSockAddr() const { return &addr_; }
+    /* 使用sockaddr_in设置InetAddress */
+    void setSockAddr(const sockaddr_in& addr) { addr_ = addr;}
+
 private:
     /* socket地址类型 仅支持ipv4 */
     sockaddr_in addr_;
