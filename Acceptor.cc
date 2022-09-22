@@ -25,7 +25,7 @@ Acceptor::Acceptor(EventLoop* loop, const InetAddress& listenAddr, bool reusepor
     , listenning_(false)
     {
         acceptSocket_.setReuseAddr(true);
-        acceptSocket_.setReusePort(true);
+        acceptSocket_.setReusePort(reuseport);
         acceptSocket_.bindAddress(listenAddr); /* bind */
         /* 使用handleRead函数 处理新用户的连接 */
         acceptChannel_.setReadCallback(std::bind(&Acceptor::handleRead, this));
