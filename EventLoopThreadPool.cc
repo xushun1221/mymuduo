@@ -15,7 +15,7 @@ EventLoopThreadPool::~EventLoopThreadPool() {
     /* 无需释放loops_ 因为线程绑定的loop都是栈上对象 */
 }
 
-void EventLoopThreadPool::start(const ThreadInitCallback& cb = ThreadInitCallback()) {
+void EventLoopThreadPool::start(const ThreadInitCallback& cb) {
     started_ = true;
     /* 服务器开启多个线程 */
     for (int i = 0; i < numThreads_; ++ i) {
@@ -43,7 +43,7 @@ EventLoop* EventLoopThreadPool::getNextLoop() {
         /* 如果使用了多个线程 轮询获得下一个处理事件的loop */
         loop = loops_[next_];
         ++ next_;
-        if (next_ >= loops_.size()) {
+        if (static_cast<unsigned long>(next_) >= loops_.size()) {
             next_ = 0;
         }
     }
