@@ -3,7 +3,7 @@
 
 
 
-EventLoop* CheckLoopNotNull(EventLoop* loop) {
+static EventLoop* CheckLoopNotNull(EventLoop* loop) {
     if (loop == nullptr) {
         /* mainloop为空不能初始化TcpServer 严重错误 */
         LOG_FATAL("CheckLoopNotNull mainloop is null \n");
