@@ -2,6 +2,7 @@
 
 #include <sys/uio.h>
 #include <errno.h>
+#include <unistd.h>
 
 
 
@@ -44,4 +45,16 @@ ssize_t Buffer::readFd(int fd, int* savedErrno) {
     }
     /* 返回读取的字节数 */
     return n; 
+}
+
+
+/* 从Buffer写数据到fd */
+ssize_t Buffer::writeFd(int fd, int* savedErrno) {
+    /* 把Buffer中的数据全部写出去 */
+    ssize_t n = ::write(fd, peek(), readableBytes());
+    if (n < 0) {
+        /* 出错 */
+        *savedErrno = errno;
+    }
+    return n;
 }

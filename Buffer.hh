@@ -98,7 +98,8 @@ public:
 /* 读写文件描述符 */
     /* 从fd读取数据到Buffer */
     ssize_t readFd(int fd, int* savedErrno);
-
+    /* 从Buffer写数据到fd */
+    ssize_t writeFd(int fd, int* savedErrno);
 
 private:
     /* 获得Buffer底层数组首地址 对socket进行操作需要字符串指针 从vector底层数组获取 */
