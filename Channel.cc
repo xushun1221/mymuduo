@@ -15,8 +15,9 @@ Channel::~Channel() {
 
 }
 
-/* 防止当Channel被Poller手动remove Channel还在执行回调 */
+/* TcpConnection新连接创建的时候 将该channel绑定到连接上 防止连接销毁后仍然执行回调 */
 void Channel::tie(const std::shared_ptr<void>& obj) {
+    /* obj实际上是一个指向TcpConnection的指针 */
     tie_ = obj; /* 弱智能指针绑定强智能指针 */
     tied_ = true;
 }

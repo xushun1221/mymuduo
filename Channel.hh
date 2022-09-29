@@ -20,7 +20,7 @@ public:
     explicit Channel(EventLoop* loop, int fd);  /* EventLoop不用包含头文件是因为只需要指针而非具体信息 指针大小都一样 */
     ~Channel();
     
-    /* 防止当Channel被Poller手动remove Channel还在执行回调 */
+    /* TcpConnection新连接创建的时候 将该channel绑定到连接上 防止连接销毁后仍然执行回调 */
     void tie(const std::shared_ptr<void>& obj);
     
     /* 处理事件 调用相应的回调 */
