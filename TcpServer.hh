@@ -41,7 +41,7 @@ private:
     using ConnectionMap = std::unordered_map<std::string, TcpConnectionPtr>;
 
     /* 连接相关 */
-    void newConnection(int sockfd, const InetAddress& peerAddr); /* 新连接分配给subloop的回调 */
+    void newConnection(int sockfd, const InetAddress& peerAddr);
     void removeConnection(const TcpConnectionPtr& conn);
     void removeConnectionInLoop(const TcpConnectionPtr& conn);
 
