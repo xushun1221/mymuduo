@@ -8,6 +8,8 @@
 #include "Acceptor.hh"
 #include "InetAddress.hh"
 #include "Callbacks.hh"
+#include "TcpConnection.hh"
+#include "Buffer.hh"
 
 #include <functional>
 #include <string>
