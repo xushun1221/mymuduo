@@ -24,7 +24,7 @@ public:
     virtual void removeChannel(Channel* Channel) = 0;   /* epoll_ctl */
     
     /* channel是否在当前Poller中 */
-    virtual bool hasChannel(Channel* channel) const;
+    bool hasChannel(Channel* channel) const;
 
     /* EventLoop可以通过该接口获得默认IO复用的具体实现 */
     static Poller* newDefaultPoller(EventLoop* loop); /* 我们并不在Poller.cc中提供该方法的实现 */
