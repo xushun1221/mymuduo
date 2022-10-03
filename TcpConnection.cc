@@ -166,7 +166,7 @@ void TcpConnection::sendInLoop(const void* data, size_t len) {
         if (nwrote >= 0) {
             /* 发送成功了 */
             remaining = len - nwrote; /* 剩下多少 */
-            if (remaining == 0) {
+            if (remaining == 0 && writeCompleteCallback_) {
                 /* 全部发送成功 无需缓冲  也无需给channel注册EPOLLOUT事件了 也就不会执行handleWrite方法了 */
                 loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this())); /* 执行发送完成回调 */
             }
