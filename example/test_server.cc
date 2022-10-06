@@ -1,5 +1,5 @@
-#include <mymuduo/TcpServer.hh>
-#include <mymuduo/Logger.hh>
+#include <mymuduo/net/TcpServer.hh>
+#include <mymuduo/base/Logger.hh>
 #include <string>
 #include <functional>
 
