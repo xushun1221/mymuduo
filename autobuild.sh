@@ -21,10 +21,27 @@ cd ..
 if [ ! -d /usr/include/mymuduo ]; then
     mkdir /usr/include/mymuduo
 fi
+if [ ! -d /usr/include/mymuduo/base ]; then
+    mkdir /usr/include/mymuduo/base
+fi
+if [ ! -d /usr/include/mymuduo/net ]; then
+    mkdir /usr/include/mymuduo/net
+fi
+if [ ! -d /usr/include/mymuduo/net/poller ]; then
+    mkdir /usr/include/mymuduo/net/poller
+fi
 
-for header in `ls *.hh`
+for header in `ls ./mymuduo/base/*.hh`
 do
-    cp $header /usr/include/mymuduo
+    cp $header /usr/include/mymuduo/base
+done
+for header in `ls ./mymuduo/net/*.hh`
+do
+    cp $header /usr/include/mymuduo/net
+done
+for header in `ls ./mymuduo/net/poller/*.hh`
+do
+    cp $header /usr/include/mymuduo/net/poller
 done
 
 # so库拷贝到/usr/lib
