@@ -16,6 +16,7 @@
 
 - Linux kernel version >= 2.6.28
 - GCC version >= 4.8.1
+- CMake version >= 2.5
 
 ### Build
 
